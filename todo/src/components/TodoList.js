@@ -1,15 +1,17 @@
-import React, { useState, useReducer } from "react";
+import React from "react";
 import Todo from "./Todo";
 
-const TodoList = (props) => {
+export default function TodoList(props) {
   return (
-    <div className="task-list">
-      {props.toDo.map((item) => (
-        <Todo key={item.id} item={item} toggleTask={props.toggleTask} />
+    <div>
+      {props.todos.map((item) => (
+        <Todo
+          key={item.id}
+          item={item}
+          toggleTodoCompleted={props.toggleTodoCompleted}
+        />
       ))}
-      <button className="clear-btn" onClick={props.clearTasks}>
-        Clear Completed Tasks
-      </button>
+      <button onClick={props.clearTodo}>Clear Completed</button>
     </div>
   );
-};
+}

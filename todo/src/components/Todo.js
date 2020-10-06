@@ -1,14 +1,25 @@
 import React, { useState, useReducer } from "react";
 
 const Todo = (props) => {
+  console.log("will", props);
   return (
     <div
-      className={`item${props.item.completed ? " completed" : ""}`}
-      onClick={() => props.toggleTask(props.item.id)}
+      className={`item${props.item.completed ? "completed" : ""}`}
+      onClick={() => props.toggleTodoCompleted(props.item.id)}
     >
-      <p>{props.item.task}</p>
+      {props.item.todo}
     </div>
   );
 };
 
 export default Todo;
+
+// const Todo = props => {
+//   return(
+//       <div
+//       className={`todo${props.todo.completed ? 'completed' : ''}`}
+//       onClick={() => props.toggleTodoCompleted(props.todo.id)}>
+//           <p>{props.todo}</p>
+//       </div>
+//   )
+// }
